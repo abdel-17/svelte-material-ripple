@@ -1,24 +1,19 @@
-# Svelte Material Ripple
+<script>
+	import { Installation } from '$docs/components';
+	import { Ripple } from '$lib';
+</script>
+
+<h1 class="relative bg-gradient-to-br from-primary-400 to-primary-700 bg-clip-text text-transparent">
+	Svelte Material Ripple
+</h1>
 
 Svelte Material Ripple is a library for adding ripple effects to elements. Its implementation is based on the official [md-ripple] web component.
-
-Read the full [documentation].
-
--   [Installation](#installation)
--   [Usage](#usage)
--   [Theming](#theming)
--   [API](#api)
 
 ## Installation
 
 Install the package from npm using your preferred package manager.
 
-```bash
-npm install -D svelte-material-ripple
-pnpm add -D svelte-material-ripple
-yarn add -D svelte-material-ripple
-bun add -D svelte-material-ripple
-```
+<Installation />
 
 ## Usage
 
@@ -31,6 +26,7 @@ Import the `Ripple` component and place it in a `position: relative` container.
 
 <button class="relative">
 	<Ripple />
+	<span>Click</span>
 </button>
 
 <style>
@@ -39,6 +35,13 @@ Import the `Ripple` component and place it in a `position: relative` container.
 	}
 </style>
 ```
+
+<div class="flex justify-center mt-5">
+	<button class="btn relative">
+		<Ripple />
+		<span>Click</span>
+	</button>
+</div>
 
 In the spirit of progressive enhancment, ripples use a simpler CSS-based implementation when JavaScript is not available.
 
@@ -77,6 +80,19 @@ Ripples support theming using CSS variables.
 	}
 </style>
 ```
+
+<div class="flex justify-center mt-5">
+	<button
+		style:--ripple-hover-color="red"
+		style:--ripple-hover-opacity="0.1"
+		style:--ripple-pressed-color="red"
+		style:--ripple-pressed-opacity="0.2"
+		class="btn relative"
+	>
+		<Ripple />
+		<span>Click</span>
+	</button>
+</div>
 
 Ripples also support theming using props.
 
@@ -152,5 +168,10 @@ Pass `true` to disable the fallback ripple when JavaScript is not available.
 
 Custom class applied to the ripple element.
 
+<style lang="postcss">
+	h3 > code, td:nth-child(1) > code {
+		@apply bg-neutral-200 text-neutral-800;
+	}
+</style>
+
 [md-ripple]: https://github.com/material-components/material-web/tree/main/ripple
-[documentation]: https://svelte-material-ripple.vercel.app
