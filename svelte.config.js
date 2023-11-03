@@ -1,5 +1,5 @@
 import { preprocessMeltUI } from '@melt-ui/pp';
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import { mdsvex } from 'mdsvex';
 import sequence from 'svelte-sequential-preprocessor';
@@ -21,4 +21,5 @@ const config = {
 		},
 	},
 };
+
 export default config;
