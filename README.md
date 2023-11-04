@@ -68,7 +68,6 @@ Ripples support theming using CSS variables.
 	style:--ripple-pressed-opacity="0.2"
 >
 	<Ripple />
-	<span>Click</span>
 </button>
 
 <style>

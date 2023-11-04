@@ -1,5 +1,5 @@
 <script>
-	import { Installation } from '$docs/components';
+	import { Installation, RippleDemo } from '$docs/components';
 	import { Ripple } from '$lib';
 </script>
 
@@ -26,7 +26,6 @@ Import the `Ripple` component and place it in a `position: relative` container.
 
 <button class="relative">
 	<Ripple />
-	<span>Click</span>
 </button>
 
 <style>
@@ -36,7 +35,7 @@ Import the `Ripple` component and place it in a `position: relative` container.
 </style>
 ```
 
-<div class="flex justify-center mt-5">
+<div class="flex justify-center mt-4">
 	<button class="btn relative">
 		<Ripple />
 		<span>Click</span>
@@ -71,7 +70,6 @@ Ripples support theming using CSS variables.
 	style:--ripple-pressed-opacity="0.2"
 >
 	<Ripple />
-	<span>Click</span>
 </button>
 
 <style>
@@ -81,7 +79,7 @@ Ripples support theming using CSS variables.
 </style>
 ```
 
-<div class="flex justify-center mt-5">
+<div class="flex justify-center mt-4">
 	<button
 		style:--ripple-hover-color="red"
 		style:--ripple-hover-opacity="0.1"
@@ -105,6 +103,10 @@ Ripples also support theming using props.
 	pressedOpacity={0.2}
 />
 ```
+
+## Interactive Demo
+
+<RippleDemo />
 
 ## API
 
@@ -169,7 +171,8 @@ Pass `true` to disable the fallback ripple when JavaScript is not available.
 Custom class applied to the ripple element.
 
 <style lang="postcss">
-	h3 > code, td:nth-child(1) > code {
+	h3 > code,
+	td:nth-child(1) > code {
 		@apply bg-neutral-200 text-neutral-800;
 	}
 </style>

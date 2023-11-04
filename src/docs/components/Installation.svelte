@@ -29,7 +29,7 @@
 </script>
 
 <div use:melt={$root} class="flex flex-col">
-	<div use:melt={$list} class="-m-1 mb-2 flex gap-3 overflow-x-auto p-1">
+	<div use:melt={$list} class="-m-1 flex gap-3 overflow-x-auto p-1">
 		{#each packageManagers as { name, svg }}
 			<button
 				use:melt={$trigger(name)}
@@ -58,7 +58,7 @@
 	</div>
 
 	{#each packageManagers as { name }}
-		<div use:melt={$content(name)}>
+		<div use:melt={$content(name)} class="mt-2">
 			<pre class="language-bash">{@html code(name)}</pre>
 		</div>
 	{/each}
