@@ -130,6 +130,7 @@
 		position: absolute;
 		inset: 0;
 		overflow: hidden;
+		isolation: isolate; /* Fix ripple overflow on iOS safari */
 		-webkit-tap-highlight-color: transparent;
 
 		--_hover-color: var(--ripple-hover-color, currentColor);
