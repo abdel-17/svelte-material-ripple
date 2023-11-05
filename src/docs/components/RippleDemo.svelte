@@ -115,7 +115,7 @@
 		</div>
 
 		<div class="flex flex-col">
-			<label for="animation-duration" use:melt={$label} class="label">Duration</label>
+			<label for="animation-duration" use:melt={$label} class="label">Duration (ms)</label>
 			<input
 				id="animation-duration"
 				type="number"
@@ -138,7 +138,12 @@
 		</div>
 
 		<div class="col-span-2 flex items-center justify-between">
-			<label id="disabled-switch-label" for="disabled-switch" use:melt={$label} class="label">
+			<label
+				id="disabled-switch-label"
+				for="disabled-switch"
+				use:melt={$label}
+				class="label mb-0"
+			>
 				Disabled
 			</label>
 			<button
