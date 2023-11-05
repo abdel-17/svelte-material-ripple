@@ -133,6 +133,7 @@
 				<option value="ease">ease</option>
 				<option value="ease-in">ease-in</option>
 				<option value="ease-in-out">ease-in-out</option>
+				<option value="linear">linear</option>
 			</select>
 		</div>
 
