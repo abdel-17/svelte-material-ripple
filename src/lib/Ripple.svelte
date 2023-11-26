@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { writable } from 'svelte/store';
-	import { RippleController } from './RippleController';
+	import { createRipple } from './ripple';
 
 	/**
 	 * The underlying HTML element.
@@ -75,27 +74,9 @@
 	let className: string | undefined = undefined;
 	export { className as class };
 
+	const { hovered, pressed, ripple } = createRipple();
+
 	let mounted = false;
-
-	const hovered = writable(false);
-	const pressed = writable(false);
-	const controller = new RippleController({
-		ref,
-		disabled,
-		hovered,
-		pressed,
-		easing,
-		duration,
-	});
-
-	$: if (disabled) {
-		$hovered = false;
-		$pressed = false;
-	}
-	$: controller.ref = ref;
-	$: controller.disabled = disabled;
-	$: controller.easing = easing;
-	$: controller.duration = duration;
 
 	onMount(() => {
 		mounted = true;
@@ -115,13 +96,7 @@
 	style:--ripple-hover-opacity={hoverOpacity}
 	style:--ripple-pressed-color={pressedColor}
 	style:--ripple-pressed-opacity={pressedOpacity}
-	on:pointerenter={controller.handlePointerenter.bind(controller)}
-	on:pointerleave={controller.handlePointerleave.bind(controller)}
-	on:pointerup={controller.handlePointerup.bind(controller)}
-	on:pointerdown={controller.handlePointerdown.bind(controller)}
-	on:click={controller.handleClick.bind(controller)}
-	on:pointercancel={controller.handlePointercancel.bind(controller)}
-	on:contextmenu={controller.handleContextmenu.bind(controller)}
+	use:ripple={{ disabled, easing, duration }}
 />
 
 <style>
@@ -137,6 +112,10 @@
 		--_hover-opacity: var(--ripple-hover-opacity, 0.08);
 		--_pressed-color: var(--ripple-pressed-color, currentColor);
 		--_pressed-opacity: var(--ripple-pressed-opacity, 0.12);
+	}
+
+	.surface:not(.fallback) {
+		pointer-events: none;
 	}
 
 	.surface::before,
