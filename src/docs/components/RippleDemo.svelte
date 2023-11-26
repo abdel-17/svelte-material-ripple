@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { writableWithDirty } from '$docs/utils';
-	import { Ripple } from '$lib';
-	import { createLabel, createSwitch, melt } from '@melt-ui/svelte';
+	import { writableWithDirty } from "$docs/utils";
+	import { Ripple } from "$lib";
+	import { createLabel, createSwitch, melt } from "@melt-ui/svelte";
 
-	const easingDefault = 'cubic-bezier(0.2, 0, 0, 1)';
+	const easingDefault = "cubic-bezier(0.2, 0, 0, 1)";
 
-	let hoverColor = writableWithDirty('#000000');
+	let hoverColor = writableWithDirty("#000000");
 	let hoverOpacity = writableWithDirty(0.08);
-	let pressedColor = writableWithDirty('#000000');
+	let pressedColor = writableWithDirty("#000000");
 	let pressedOpacity = writableWithDirty(0.12);
 	let duration = writableWithDirty(450);
 	let easing = easingDefault;
@@ -23,23 +23,23 @@
 
 	$: code = globalThis.Prism.highlight(
 		getHighlightedText([
-			hoverColor.dirty && prop('hoverColor', $hoverColor),
-			hoverOpacity.dirty && prop('hoverOpacity', $hoverOpacity),
-			pressedColor.dirty && prop('pressedColor', $pressedColor),
-			pressedOpacity.dirty && prop('pressedOpacity', $pressedOpacity),
-			duration.dirty && prop('duration', $duration),
-			easing !== easingDefault && prop('easing', easing),
-			$disabled && prop('disabled', $disabled),
+			hoverColor.dirty && prop("hoverColor", $hoverColor),
+			hoverOpacity.dirty && prop("hoverOpacity", $hoverOpacity),
+			pressedColor.dirty && prop("pressedColor", $pressedColor),
+			pressedOpacity.dirty && prop("pressedOpacity", $pressedOpacity),
+			duration.dirty && prop("duration", $duration),
+			easing !== easingDefault && prop("easing", easing),
+			$disabled && prop("disabled", $disabled),
 		]),
 		globalThis.Prism.languages.svelte,
-		'svelte',
+		"svelte",
 	);
 
 	function prop(name: string, value: unknown) {
-		if (typeof value === 'string') {
+		if (typeof value === "string") {
 			return `${name}="${value}"`;
 		}
-		if (typeof value === 'boolean') {
+		if (typeof value === "boolean") {
 			return `${name}`;
 		}
 		return `${name}={${value}}`;
@@ -48,10 +48,10 @@
 	function getHighlightedText(props: Array<string | false>) {
 		const truthyProps = props.filter((prop): prop is string => prop !== false);
 		if (truthyProps.length === 0) {
-			return '<Ripple />';
+			return "<Ripple />";
 		}
 		const indentedProps = truthyProps.map((prop) => prop.padStart(prop.length + 4));
-		return `<Ripple\n${indentedProps.join('\n')}\n/>`;
+		return `<Ripple\n${indentedProps.join("\n")}\n/>`;
 	}
 </script>
 
@@ -138,12 +138,7 @@
 		</div>
 
 		<div class="col-span-2 flex items-center justify-between">
-			<label
-				id="disabled-switch-label"
-				for="disabled-switch"
-				use:melt={$label}
-				class="label mb-0"
-			>
+			<label id="disabled-switch-label" for="disabled-switch" use:melt={$label} class="label mb-0">
 				Disabled
 			</label>
 			<button
@@ -164,19 +159,19 @@
 <pre class="language-svelte !my-0 !rounded-lg !rounded-t-none">{@html code}</pre>
 
 <style lang="postcss">
-	input[type='color'] {
+	input[type="color"] {
 		@apply h-10 w-10 cursor-pointer appearance-none border-none bg-transparent;
 	}
 
-	input[type='color']::-webkit-color-swatch-wrapper {
+	input[type="color"]::-webkit-color-swatch-wrapper {
 		padding: 0;
 	}
 
-	input[type='color']::-webkit-color-swatch {
+	input[type="color"]::-webkit-color-swatch {
 		@apply rounded-full border-none;
 	}
 
-	input[type='color']::-moz-color-swatch {
+	input[type="color"]::-moz-color-swatch {
 		@apply rounded-full border-none;
 	}
 </style>

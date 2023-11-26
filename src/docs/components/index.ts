@@ -1,2 +1,2 @@
-export { default as Installation } from './Installation.svelte';
-export { default as RippleDemo } from './RippleDemo.svelte';
+export { default as Installation } from "./Installation.svelte";
+export { default as RippleDemo } from "./RippleDemo.svelte";

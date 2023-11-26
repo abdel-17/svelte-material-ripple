@@ -3,16 +3,16 @@
 //
 // https://github.com/material-components/material-web/blob/main/ripple/internal/ripple.ts
 
-import type { Action } from 'svelte/action';
-import { writable, type Readable } from 'svelte/store';
+import type { Action } from "svelte/action";
+import { writable, type Readable } from "svelte/store";
 
 const MINIMUM_PRESS_MS = 225;
 const INITIAL_ORIGIN_SCALE = 0.2;
 const PADDING = 10;
 const SOFT_EDGE_MINIMUM_SIZE = 75;
 const SOFT_EDGE_CONTAINER_RATIO = 0.35;
-const PRESS_PSEUDO = '::after';
-const ANIMATION_FILL = 'forwards';
+const PRESS_PSEUDO = "::after";
+const ANIMATION_FILL = "forwards";
 
 /**
  * Delay reacting to touch so that we do not show the ripple for a swipe or
@@ -69,7 +69,7 @@ enum State {
 }
 
 function isTouch({ pointerType }: PointerEvent) {
-	return pointerType === 'touch';
+	return pointerType === "touch";
 }
 
 export type RippleActionParams = {
@@ -91,8 +91,8 @@ export function createRipple(): Ripple {
 		hovered,
 		pressed,
 		ripple(node, { disabled, easing, duration }) {
-			let rippleSize = '';
-			let rippleScale = '';
+			let rippleSize = "";
+			let rippleScale = "";
 			let initialSize = 0;
 			let state = State.INACTIVE;
 			let checkBoundsAfterContextMenu = false;
@@ -102,10 +102,7 @@ export function createRipple(): Ripple {
 			function determineRippleSize() {
 				const { height, width } = node.getBoundingClientRect();
 				const maxDim = Math.max(height, width);
-				const softEdgeSize = Math.max(
-					SOFT_EDGE_CONTAINER_RATIO * maxDim,
-					SOFT_EDGE_MINIMUM_SIZE,
-				);
+				const softEdgeSize = Math.max(SOFT_EDGE_CONTAINER_RATIO * maxDim, SOFT_EDGE_MINIMUM_SIZE);
 				const hypotenuse = Math.sqrt(width ** 2 + height ** 2);
 				const maxRadius = hypotenuse + PADDING;
 
@@ -179,10 +176,10 @@ export function createRipple(): Ripple {
 				const animation = growAnimation;
 
 				const pressAnimationPlayState =
-					typeof animation?.currentTime === 'number'
+					typeof animation?.currentTime === "number"
 						? animation.currentTime
 						: animation?.currentTime
-						  ? animation.currentTime.to('ms').value
+						  ? animation.currentTime.to("ms").value
 						  : Infinity;
 
 				if (pressAnimationPlayState >= MINIMUM_PRESS_MS) {
@@ -231,7 +228,7 @@ export function createRipple(): Ripple {
 					return false;
 				}
 
-				if (event.type === 'pointerenter' || event.type === 'pointerleave') {
+				if (event.type === "pointerenter" || event.type === "pointerleave") {
 					return !isTouch(event);
 				}
 
@@ -254,7 +251,7 @@ export function createRipple(): Ripple {
 				unsubscribers.push(() => parentElement.removeEventListener(eventName, listener));
 			}
 
-			addEventListenerToParent('pointerenter', (event) => {
+			addEventListenerToParent("pointerenter", (event) => {
 				if (!shouldReactToEvent(event)) {
 					return;
 				}
@@ -262,7 +259,7 @@ export function createRipple(): Ripple {
 				hovered.set(true);
 			});
 
-			addEventListenerToParent('pointerleave', (event) => {
+			addEventListenerToParent("pointerleave", (event) => {
 				if (!shouldReactToEvent(event)) {
 					return;
 				}
@@ -275,7 +272,7 @@ export function createRipple(): Ripple {
 				}
 			});
 
-			addEventListenerToParent('pointerup', (event) => {
+			addEventListenerToParent("pointerup", (event) => {
 				if (!shouldReactToEvent(event)) {
 					return;
 				}
@@ -292,7 +289,7 @@ export function createRipple(): Ripple {
 				}
 			});
 
-			addEventListenerToParent('pointerdown', async (event) => {
+			addEventListenerToParent("pointerdown", async (event) => {
 				if (!shouldReactToEvent(event)) {
 					return;
 				}
@@ -327,7 +324,7 @@ export function createRipple(): Ripple {
 				startPressAnimation(event);
 			});
 
-			addEventListenerToParent('pointercancel', (event) => {
+			addEventListenerToParent("pointercancel", (event) => {
 				if (!shouldReactToEvent(event)) {
 					return;
 				}
@@ -335,7 +332,7 @@ export function createRipple(): Ripple {
 				endPressAnimation();
 			});
 
-			addEventListenerToParent('click', () => {
+			addEventListenerToParent("click", () => {
 				// Click is a MouseEvent in Firefox and Safari, so we cannot use
 				// `shouldReactToEvent`
 				if (disabled) {
@@ -354,7 +351,7 @@ export function createRipple(): Ripple {
 				}
 			});
 
-			addEventListenerToParent('contextmenu', () => {
+			addEventListenerToParent("contextmenu", () => {
 				if (disabled) {
 					return;
 				}

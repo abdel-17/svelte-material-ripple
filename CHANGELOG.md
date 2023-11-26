@@ -8,4 +8,4 @@ Initial version
 
 ### Patch Changes
 
--   Fix ripple overflow on iOS
+- Fix ripple overflow on iOS

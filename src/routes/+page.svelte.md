@@ -21,7 +21,7 @@ Import the `Ripple` component and place it in a `position: relative` container.
 
 ```svelte
 <script>
-	import { Ripple } from 'svelte-material-ripple';
+	import { Ripple } from "svelte-material-ripple";
 </script>
 
 <button class="relative">
@@ -59,7 +59,7 @@ Ripples support theming using CSS variables.
 
 ```svelte
 <script>
-	import { Ripple } from 'svelte-material-ripple';
+	import { Ripple } from "svelte-material-ripple";
 </script>
 
 <button

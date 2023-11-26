@@ -1,29 +1,29 @@
 <script lang="ts">
-	import bun from '$docs/assets/bun.svg?raw';
-	import npm from '$docs/assets/npm.svg?raw';
-	import pnpm from '$docs/assets/pnpm.svg?raw';
-	import yarn from '$docs/assets/yarn.svg?raw';
-	import { Ripple } from '$lib';
-	import { createTabs, melt } from '@melt-ui/svelte';
+	import bun from "$docs/assets/bun.svg?raw";
+	import npm from "$docs/assets/npm.svg?raw";
+	import pnpm from "$docs/assets/pnpm.svg?raw";
+	import yarn from "$docs/assets/yarn.svg?raw";
+	import { Ripple } from "$lib";
+	import { createTabs, melt } from "@melt-ui/svelte";
 
 	const {
 		elements: { root, list, content, trigger },
 	} = createTabs({
-		defaultValue: 'npm',
+		defaultValue: "npm",
 	});
 
 	const packageManagers = [
-		{ name: 'npm', svg: npm },
-		{ name: 'pnpm', svg: pnpm },
-		{ name: 'yarn', svg: yarn },
-		{ name: 'bun', svg: bun },
+		{ name: "npm", svg: npm },
+		{ name: "pnpm", svg: pnpm },
+		{ name: "yarn", svg: yarn },
+		{ name: "bun", svg: bun },
 	];
 
 	function code(name: string) {
 		return globalThis.Prism.highlight(
 			`${name} add -D svelte-material-ripple`,
 			globalThis.Prism.languages.bash,
-			'bash',
+			"bash",
 		);
 	}
 </script>

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { createRipple } from './ripple';
+	import { onMount } from "svelte";
+	import { createRipple } from "./ripple";
 
 	/**
 	 * The underlying HTML element.
@@ -49,7 +49,7 @@
 	 *
 	 * @default 'cubic-bezier(0.2, 0, 0, 1)'
 	 */
-	export let easing: string = 'cubic-bezier(0.2, 0, 0, 1)';
+	export let easing: string = "cubic-bezier(0.2, 0, 0, 1)";
 
 	/**
 	 * The duration of the ripple animation.
@@ -87,7 +87,7 @@
 	bind:this={ref}
 	aria-hidden="true"
 	data-ripple
-	class={className ? `surface ${className}` : 'surface'}
+	class={className ? `surface ${className}` : "surface"}
 	class:hovered={$hovered}
 	class:pressed={$pressed}
 	class:fallback={!mounted && !disableFallback}
@@ -120,7 +120,7 @@
 
 	.surface::before,
 	.surface::after {
-		content: '';
+		content: "";
 		opacity: 0;
 		position: absolute;
 	}
