@@ -87,7 +87,7 @@
 	bind:this={ref}
 	aria-hidden="true"
 	data-ripple
-	class={className ? `surface ${className}` : "surface"}
+	class={className ? `ripple ${className}` : "ripple"}
 	class:hovered={$hovered}
 	class:pressed={$pressed}
 	class:fallback={!mounted && !disableFallback}
@@ -100,7 +100,7 @@
 />
 
 <style>
-	.surface {
+	.ripple {
 		border-radius: inherit;
 		position: absolute;
 		inset: 0;
@@ -108,58 +108,58 @@
 		isolation: isolate; /* Fix ripple overflow on iOS safari */
 		-webkit-tap-highlight-color: transparent;
 
-		--_hover-color: var(--ripple-hover-color, currentColor);
-		--_hover-opacity: var(--ripple-hover-opacity, 0.08);
-		--_pressed-color: var(--ripple-pressed-color, currentColor);
-		--_pressed-opacity: var(--ripple-pressed-opacity, 0.12);
+		--hover-color: var(--ripple-hover-color, currentColor);
+		--hover-opacity: var(--ripple-hover-opacity, 0.08);
+		--pressed-color: var(--ripple-pressed-color, currentColor);
+		--pressed-opacity: var(--ripple-pressed-opacity, 0.12);
 	}
 
-	.surface:not(.fallback) {
+	.ripple:not(.fallback) {
 		pointer-events: none;
 	}
 
-	.surface::before,
-	.surface::after {
+	.ripple::before,
+	.ripple::after {
 		content: "";
 		opacity: 0;
 		position: absolute;
 	}
 
-	.surface::before {
-		background-color: var(--_hover-color);
+	.ripple::before {
+		background-color: var(--hover-color);
 		inset: 0;
 		transition:
 			opacity 15ms linear,
 			background-color 15ms linear;
 	}
 
-	.surface::after {
+	.ripple::after {
 		transition: opacity 375ms linear;
 	}
 
-	.surface:not(.fallback)::after {
+	.ripple:not(.fallback)::after {
 		background: radial-gradient(
 			closest-side,
-			var(--_pressed-color) max(100% - 70px, 65%),
+			var(--pressed-color) max(100% - 70px, 65%),
 			transparent 100%
 		);
 		transform-origin: center center;
 	}
 
 	.fallback::after {
-		background-color: var(--_pressed-color);
+		background-color: var(--pressed-color);
 		inset: 0;
 	}
 
 	.fallback:hover::before,
 	.hovered::before {
-		background-color: var(--_hover-color);
-		opacity: var(--_hover-opacity);
+		background-color: var(--hover-color);
+		opacity: var(--hover-opacity);
 	}
 
 	.fallback:active::after,
 	.pressed::after {
-		opacity: var(--_pressed-opacity);
+		opacity: var(--pressed-opacity);
 		transition-duration: 105ms;
 	}
 
