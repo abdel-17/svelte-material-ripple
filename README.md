@@ -9,6 +9,9 @@ Read the full [documentation].
 - [Theming](#theming)
 - [API](#api)
 
+## Deprecation Notice ⚠️
+This package has been deprecated in favor of the framework-agnostic [material-ripple-web](https://github.com/abdel-17/material-ripple-web).
+
 ## Installation
 
 Install the package from npm using your preferred package manager.
