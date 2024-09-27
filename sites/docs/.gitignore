@@ -1,21 +1,7 @@
 node_modules
 
-# Output
-.output
-.vercel
+# Generated Files
 /.svelte-kit
-/build
 
-# OS
+# OS Files
 .DS_Store
-Thumbs.db
-
-# Env
-.env
-.env.*
-!.env.example
-!.env.test
-
-# Vite
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*

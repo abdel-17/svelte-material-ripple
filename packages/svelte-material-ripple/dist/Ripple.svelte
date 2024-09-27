@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Ripple } from "./core.js";
+	import { Ripple as RippleCore } from "./core.svelte.js";
 	import type { RippleProps } from "./types.js";
 
 	let {
@@ -15,7 +15,7 @@
 	let pressed = $state(false);
 
 	function ripple(element: HTMLElement) {
-		new Ripple(element, {
+		new RippleCore(element, {
 			get disabled() {
 				return disabled;
 			},
