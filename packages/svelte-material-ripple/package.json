@@ -1,0 +1,53 @@
+{
+	"name": "svelte-material-ripple",
+	"version": "0.1.0",
+	"type": "module",
+	"scripts": {
+		"build": "svelte-kit sync && svelte-package && publint",
+		"prepublishOnly": "pnpm run build",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		}
+	},
+	"types": "./dist/index.d.ts",
+	"svelte": "./dist/index.js",
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"peerDependencies": {
+		"svelte": "^4.0.0"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^3.2.5",
+		"@sveltejs/kit": "^2.5.28",
+		"@sveltejs/package": "^2.3.5",
+		"prettier": "^3.3.3",
+		"prettier-plugin-svelte": "^3.2.6",
+		"publint": "^0.2.11",
+		"svelte": "5.0.0-next.257",
+		"svelte-check": "^4.0.2",
+		"typescript": "^5.6.2"
+	},
+	"author": "abdel-17",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/abdel-17/svelte-material-ripple.git",
+		"directory": "packages/svelte-material-ripple"
+	},
+	"keywords": [
+		"svelte",
+		"component",
+		"material design",
+		"ripple"
+	]
+}

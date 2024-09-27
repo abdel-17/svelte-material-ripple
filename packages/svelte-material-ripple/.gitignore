@@ -1,0 +1,10 @@
+node_modules
+
+# Build
+/dist
+
+# Generated Files
+/.svelte-kit
+
+# OS Files
+.DS_Store
