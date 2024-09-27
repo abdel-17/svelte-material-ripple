@@ -1,6 +1,6 @@
 # Svelte Material Ripple
 
-Svelte Material Ripple is a library for adding ripple effects to interactive elements such as buttons.
+Svelte Material Ripple is a library for adding ripple effects to interactive elements.
 
 ## Installation
 

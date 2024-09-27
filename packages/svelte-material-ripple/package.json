@@ -1,6 +1,7 @@
 {
 	"name": "svelte-material-ripple",
-	"version": "0.1.0",
+	"description": "Svelte library for adding ripple effects to interactive elements.",
+	"version": "0.2.0",
 	"type": "module",
 	"scripts": {
 		"build": "svelte-kit sync && svelte-package && publint",
