@@ -3,6 +3,8 @@
 	"description": "Monorepo for Svelte Material Ripple",
 	"private": true,
 	"scripts": {
+		"build": "pnpm -r build",
+		"check": "pnpm -r check",
 		"format": "pnpm -r format",
 		"format:check": "pnpm -r format:check"
 	},
