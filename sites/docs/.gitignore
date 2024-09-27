@@ -1,5 +1,8 @@
 node_modules
 
+# Build
+/build
+
 # Generated Files
 /.svelte-kit
 
